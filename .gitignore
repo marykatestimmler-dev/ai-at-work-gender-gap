@@ -1,0 +1,8 @@
+# raw Census microdata (fetched by scripts/00_download_data.py)
+data/raw/*
+!data/raw/.gitkeep
+# intermediate pickles
+data/derived/*.pkl
+__pycache__/
+node_modules/
+*.pdf
