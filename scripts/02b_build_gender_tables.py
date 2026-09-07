@@ -49,4 +49,11 @@ for c,l in [('occ','Occupation'),('edu','Education'),('inc','Household income'),
 T['comp']=rows
 W=G['wdiag']
 T['wdiag']=[['Diagnostic','Value'],['Male share of workers, weighted / unweighted',f"{W['share_male_w']*100:.1f}% / {W['share_male_unw']*100:.1f}%"],['Mean person weight, men / women',f"{W['mean_w_m']:,.0f} / {W['mean_w_f']:,.0f}"],['Coefficient of variation of weights, men / women',f"{W['cv_w_m']:.2f} / {W['cv_w_f']:.2f}"],['Kish design effect from weight variation, men / women',f"{W['deff_m']:.1f} / {W['deff_f']:.1f}"],['Daily-use gap across the 80 replicate weightings (min – max)',f"{W['daily_gap_rep_min']*100:+.1f} to {W['daily_gap_rep_max']*100:+.1f} pp"],['Daily-use gap with weights trimmed at 99th / 95th percentile',f"{W['daily_gap_trim99']*100:+.1f} / {W['daily_gap_trim95']*100:+.1f} pp"]]
+
+rows=[['Occupation group / task','Women users %','Men users %','Gap (w)','SE','Gap (unw)','n W/M']]
+for occ,TT in G['tasks_within_occ'].items():
+    rows.append([occ]+['']*6)
+    for task,r in TT.items():
+        rows.append(['   '+task,pct(r['female']),pct(r['male']),f"{r['gap']*100:+.1f}",f"{r['se']*100:.1f}",f"{r['gap_unw']*100:+.1f}",f"{r['n_f']}/{r['n_m']}"])
+T['tasks_within_occ']=rows
 json.dump(T,open('data/derived/gtables.json','w'),indent=1); print('ok')

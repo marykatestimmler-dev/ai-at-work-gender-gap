@@ -138,6 +138,15 @@ for q in [0.99,0.95]:
     cap=w.PWEIGHT.quantile(q); wt=w.PWEIGHT.clip(upper=cap)
     wts=wt.loc[s.index]
     OUT['wdiag'][f'daily_gap_trim{int(q*100)}']=np.average(s.loc[s.male==1,'ai_daily'],weights=wts[s.male==1])-np.average(s.loc[s.male==0,'ai_daily'],weights=wts[s.male==0])
+
+# task shares by sex within occupation groups (users), weighted and unweighted
+TWO={}
+for occ,so in u.groupby('occ'):
+    if (so.male==1).sum()<50 or (so.male==0).sum()<50: continue
+    TWO[occ]={}
+    for t in ['AIWRK_CODE_y','AIWRK_DATAVIS_y','AIWRK_SEARCH_y','AIWRK_TUTOR_y','AIWRK_COMM_y','AIWRK_GENIDEA_y']:
+        TWO[occ][TASKS[t]]=gap(so,t)
+OUT['tasks_within_occ']=TWO
 json.dump(OUT,open('data/derived/gender.json','w'),default=lambda o:o.item() if hasattr(o,'item') else str(o),indent=1)
 w.to_pickle('data/derived/workers2.pkl')
 print(json.dumps(OUT['raw'],default=float,indent=0)[:1500])

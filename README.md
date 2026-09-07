@@ -25,6 +25,8 @@ Raw microdata are not in the repo. `scripts/00_download_data.py` fetches them fr
 
 **The gender gap is in intensity.** The 7-point daily-use gap survives controls for age, race, region, metro, education, income, occupation, sector, telework days, marital status, children by age, household size, insurance, disability, home language, PHQ-4 and life satisfaction. Among users, women and men report the writing tasks at the same rates; the male surplus is in technical search (+18 pts), coding (+18), data analysis (+17) and self-training (+13).
 
+**Is it the work or the tool?** Within computer occupations, 60% of female AI users and 78% of male users use AI for coding; within-occupation gaps appear for coding, analysis and self-training but not for writing or ideation. Section 10 of the addendum relates this to Bick, Blandin, Deming and Schumacher's task-level adoption paper (St. Louis Fed WP 2026-017): demographics explain little *variance* in their data, which is compatible with a stable mean gap here, and their six-month experience effect (+0.43 tasks) accounts for a minority of the 0.78-task gender gap in breadth.
+
 **Counterintuitive results.** Adoption is flat from age 25 to 64 rather than highest among the young. The occupations that use AI most are the most likely to say it cost them time. The South leads and the Midwest lags after controls. AI use is uncorrelated with anxiety, depression or loneliness once occupation and demographics are held fixed.
 
 ## Method notes
@@ -55,6 +57,7 @@ Python 3.10+ and node 18+. The Word reports use the `docx` npm package; skip ste
 - U.S. Census Bureau, [HTOPS Source and Accuracy Statement, June 2025](https://www2.census.gov/programs-surveys/demo/technical-documentation/hhp/HTOPS_2506_Source_and_Accuracy.pdf)
 - Federal Reserve, [Monitoring AI Adoption in the U.S. Economy](https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-ai-adoption-in-the-u-s-economy-20260403.html), FEDS Notes, April 2026
 - Bick, Blandin and Deming, [The Rapid Adoption of Generative AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4964384) and the [FRED Blog](https://fredblog.stlouisfed.org/2026/08/does-generative-ai-save-time-at-work/) update, August 2026
+- Bick, Blandin, Deming and Schumacher, [What Work Does Generative AI Do?](https://doi.org/10.20955/wp.2026.017), St. Louis Fed Working Paper 2026-017, August 2026
 - Pew Research Center, [Key findings about how Americans view AI](https://www.pewresearch.org/short-reads/2026/03/12/key-findings-about-how-americans-view-artificial-intelligence/), March 2026
 
 ## License
