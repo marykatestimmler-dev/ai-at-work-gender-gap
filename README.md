@@ -12,7 +12,6 @@ The headline: women and men have used AI at work at the same rate (51% vs 53%), 
 |---|---|
 | `reports/` | **AI_at_Work_HTOPS_March2026_Report.docx**, the full report on every AI-at-work finding in the file (adoption, tasks, who uses it, time saved, telework, wellbeing, trust, benchmarks). **AI_at_Work_Gender_Gap_Addendum.docx**, the gender deep dive: specification ladder, Oaxaca-Blinder decomposition, subgroup heterogeneity, task mix, and a weighted-versus-unweighted comparison. |
 | `charts/` | All figures from both reports plus the LinkedIn share image. |
-| `post/` | The LinkedIn post text. |
 | `data/derived/` | Every estimate in the reports as JSON (`results.json`, `gender.json`) and the table rows built from them. |
 | `scripts/` | The full pipeline, numbered in run order. `run_all.sh` reproduces everything from the raw Census file. |
 
@@ -60,4 +59,4 @@ Python 3.10+ and node 18+. The Word reports use the `docx` npm package; skip ste
 
 ## License
 
-Code: MIT (`LICENSE`). Reports, charts and text: CC BY 4.0 (`LICENSE-CONTENT.md`). Census microdata: public domain.
+Code: MIT (`LICENSE`). Reports and charts: CC BY 4.0 (`LICENSE-CONTENT.md`). Census microdata: public domain.
