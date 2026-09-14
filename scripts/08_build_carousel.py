@@ -43,7 +43,7 @@ for i,(lab,sex,col) in enumerate([('Women',0.0,W),('Men',1.0,M)]):
     ax.barh(y,v,height=0.40,color=col,zorder=2)
     ax.errorbar(v,y,xerr=se*Z,fmt='none',ecolor=INK,elinewidth=1.6,capsize=6,capthick=1.6,zorder=3)
     ax.text(v+se*Z+2.5,y,f'{v:.0f}%',ha='left',va='center',fontsize=40,fontweight='bold',color=INK)
-    ax.text(0,y+0.30,lab,ha='left',va='bottom',fontsize=15,color=INK)
+    ax.text(0,y+0.30,lab,ha='left',va='bottom',fontsize=20,color=INK)
 ax.set_xlim(0,78); ax.set_ylim(-0.55,1.75); bare(ax)
 fig.text(0.055,0.805,'Share of employed adults who have used AI for a work task',fontsize=13.5,color=INK2,ha='left',va='top')
 fig.text(0.055,0.225,'Bars show 90% confidence intervals. The two overlap: the difference is\nwithin the survey’s margin of error.',fontsize=11,color=INK2,ha='left',va='top',linespacing=1.6)
@@ -58,17 +58,17 @@ ax=fig.add_axes([0.055,0.112,0.89,0.663]); ax.set_facecolor(BG)
 rows=len(LEV)
 for gi,(y,lab) in enumerate(LEV):
     base=(rows-1-gi)*SP
-    ax.text(0,base+0.50,lab,ha='left',va='bottom',fontsize=13.5,color=INK)
+    ax.text(0,base+0.50,lab,ha='left',va='bottom',fontsize=16.5,color=INK)
     vals={}
     for j,(nm,sex,col) in enumerate([('Women',0.0,W),('Men',1.0,M)]):
         g=w[(w.male==sex)&w[y].notna()]; v=wmean(g,y)*100; vals[nm]=v
         yy_=base+(0.20 if j==0 else -0.20)
         ax.barh(yy_,v,height=0.30,color=col,zorder=2)
-        t=ax.text(v+1.5,yy_,f'{v:.0f}%',ha='left',va='center',fontsize=15,fontweight='bold',color=INK)
+        t=ax.text(v+1.5,yy_,f'{v:.0f}%',ha='left',va='center',fontsize=18,fontweight='bold',color=INK)
     gap=vals['Men']-vals['Women']
     ax.barh(base,gap,left=GX,height=0.34,color=GAPC,zorder=2)
-    ax.text(GX+gap+1.5,base,f'+{gap:.0f}',ha='left',va='center',fontsize=15,fontweight='bold',color=INK)
-ax.text(GX,(rows-1)*SP+0.50,'gap, in points',ha='left',va='bottom',fontsize=11,color=INK2)
+    ax.text(GX+gap+1.5,base,f'+{gap:.0f}',ha='left',va='center',fontsize=18,fontweight='bold',color=INK)
+ax.text(GX,(rows-1)*SP+0.50,'gap, in points',ha='left',va='bottom',fontsize=12.5,color=INK2)
 ax.set_xlim(0,86); ax.set_ylim(-0.72,(rows-1)*SP+0.92); bare(ax)
 fig.text(0.055,0.816,'The same workers, counted three ways',fontsize=13.5,color=INK2,ha='left',va='top')
 for lx,(nm,col) in zip([0.60,0.755],[('Women',W),('Men',M)]):
