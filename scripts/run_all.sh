@@ -11,4 +11,5 @@ python3 scripts/04_charts_gender.py
 python3 scripts/05_chart_linkedin.py
 node scripts/06_build_main_report.js
 node scripts/07_build_gender_addendum.js
+python3 scripts/08_build_carousel.py
 echo "done"

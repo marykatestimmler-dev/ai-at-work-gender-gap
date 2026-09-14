@@ -60,6 +60,14 @@ Python 3.10+ and node 18+. The Word reports use the `docx` npm package; skip ste
 - Bick, Blandin, Deming and Schumacher, [What Work Does Generative AI Do?](https://doi.org/10.20955/wp.2026.017), St. Louis Fed Working Paper 2026-017, August 2026
 - Pew Research Center, [Key findings about how Americans view AI](https://www.pewresearch.org/short-reads/2026/03/12/key-findings-about-how-americans-view-artificial-intelligence/), March 2026
 
+## The LinkedIn carousel
+
+Four 1600×1600 slides and a 4-page PDF, in `charts/carousel/`. Slide 1 shows the raw parity in adoption, slide 2 the intensity ladder behind it, slide 3 the occupational composition that makes the parity notable, slide 4 the task mix.
+
+![The gender gap opens when you ask how often AI is used](charts/carousel/slide2.png)
+
+Rebuild with `python3 scripts/08_build_carousel.py` once the rest of the pipeline has run (it reads `data/derived/workers2.pkl` and `data/derived/gender.json`).
+
 ## License
 
 Code: MIT (`LICENSE`). Reports and charts: CC BY 4.0 (`LICENSE-CONTENT.md`). Census microdata: public domain.

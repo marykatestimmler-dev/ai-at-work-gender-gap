@@ -6,3 +6,4 @@ data/derived/*.pkl
 __pycache__/
 node_modules/
 *.pdf
+!charts/carousel/*.pdf
