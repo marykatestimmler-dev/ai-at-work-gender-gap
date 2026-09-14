@@ -19,8 +19,11 @@ def frame(title,page,ts=22):
     fig.text(0.055,0.952,title,fontsize=ts,fontweight='bold',color=INK,ha='left',va='top',linespacing=1.35)
     fig.text(0.945,0.952,f'{page} / {NP}',fontsize=10.5,color=INK2,ha='right',va='top')
     return fig
-def source(fig,extra=''):
-    fig.text(0.055,0.038,'\n'.join([SRC]+([extra] if extra else [])),fontsize=8.5,color=INK2,ha='left',va='bottom',linespacing=1.6)
+NOTE='The Census Bureau is revising the March 2026 weights. Weighted and unweighted analyses give the same pattern throughout.'
+def source(fig,extra='',byline=False):
+    fig.text(0.055,0.038,'\n'.join([SRC]+([extra] if extra else [])+[NOTE]),fontsize=8.5,color=INK2,ha='left',va='bottom',linespacing=1.6)
+    if byline:
+        fig.text(0.055,0.122,'Mary Kate Stimmler, PhD  ·  linkedin.com/in/marykatestimmler',fontsize=10,color=INK,ha='left',va='bottom')
 def bare(ax):
     for sp in ax.spines.values(): sp.set_visible(False)
     ax.set_xticks([]); ax.set_yticks([])
@@ -44,7 +47,7 @@ for i,(lab,sex,col) in enumerate([('Women',0.0,W),('Men',1.0,M)]):
 ax.set_xlim(0,78); ax.set_ylim(-0.55,1.75); bare(ax)
 fig.text(0.055,0.805,'Share of employed adults who have used AI for a work task',fontsize=13.5,color=INK2,ha='left',va='top')
 fig.text(0.055,0.225,'Bars show 90% confidence intervals. The two overlap: the difference is\nwithin the survey’s margin of error.',fontsize=11,color=INK2,ha='left',va='top',linespacing=1.6)
-source(fig,'Weighted; n = 6,573 employed adults.')
+source(fig,'Weighted; n = 6,573 employed adults.',byline=True)
 fig.savefig(f'{OUT}/slide1.png',facecolor=BG); plt.close()
 
 # ============ Slide 2: intensity ladder, with a gap column
@@ -111,7 +114,7 @@ fig.savefig(f'{OUT}/slide3.png',facecolor=BG); plt.close()
 G=json.load(open('data/derived/gender.json')); T=G['tasks']
 items=sorted(T,key=lambda k:-abs(T[k]['users']['gap']))
 fig=frame('The gender gap is based on\nfour technical tasks',4)
-ax=fig.add_axes([0.30,0.142,0.66,0.650]); ax.set_facecolor(BG)
+ax=fig.add_axes([0.30,0.183,0.66,0.609]); ax.set_facecolor(BG)
 yy=np.arange(len(items))[::-1]
 for yi,k in zip(yy,items):
     f_,m_=T[k]['users']['female']*100,T[k]['users']['male']*100
@@ -130,7 +133,8 @@ for sp in ['top','right','left']: ax.spines[sp].set_visible(False)
 ax.spines['bottom'].set_color(RULE); ax.grid(axis='x',color='#ECE8DD',lw=1); ax.set_axisbelow(True); ax.tick_params(length=0)
 ax.legend(frameon=False,fontsize=12,loc='lower right',markerscale=1.05)
 fig.text(0.055,0.816,'Share of workers who use AI at work and report using it for this task',fontsize=13.5,color=INK2,ha='left',va='top')
-source(fig,'Weighted; n = 4,091 workers who have used AI for at least one work task.')
+source(fig,'Weighted; n = 4,091 workers who have used AI for at least one work task.\n'
+            'Data, code and the full write-up: github.com/marykatestimmler-dev/ai-at-work-gender-gap',byline=True)
 fig.savefig(f'{OUT}/slide4.png',facecolor=BG); plt.close()
 
 with PdfPages(f'{OUT}/AI_gender_gap_carousel.pdf') as pdf:

@@ -66,7 +66,7 @@ Four 1600×1600 slides and a 4-page PDF, in `charts/carousel/`. Slide 1 shows th
 
 ![The gender gap opens when you ask how often AI is used](charts/carousel/slide2.png)
 
-Rebuild with `python3 scripts/08_build_carousel.py` once the rest of the pipeline has run (it reads `data/derived/workers2.pkl` and `data/derived/gender.json`).
+Slides 1 and 4 carry a byline and the repo link. Rebuild with `python3 scripts/08_build_carousel.py` once the rest of the pipeline has run (it reads `data/derived/workers2.pkl` and `data/derived/gender.json`).
 
 ## License
 
