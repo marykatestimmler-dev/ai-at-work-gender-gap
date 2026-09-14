@@ -113,7 +113,7 @@ fig.savefig(f'{OUT}/slide3.png',facecolor=BG); plt.close()
 # ============ Slide 4: task mix
 G=json.load(open('data/derived/gender.json')); T=G['tasks']
 items=sorted(T,key=lambda k:-abs(T[k]['users']['gap']))
-fig=frame('The gender gap is based on\nfour technical tasks',4)
+fig=frame('The gender gap shows up in\nfour technical tasks',4)
 ax=fig.add_axes([0.30,0.183,0.66,0.609]); ax.set_facecolor(BG)
 yy=np.arange(len(items))[::-1]
 for yi,k in zip(yy,items):
